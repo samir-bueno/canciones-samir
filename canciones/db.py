@@ -8,6 +8,11 @@ db_name = "informacion.sqlite"
 db_file = os.path.join(db_folder, db_name)
 db_sql_file = "datos.sql"
 
+def dict_factory(cursor, row):
+   """Arma un diccionario con los valores de la fila."""
+   fields = [column[0] for column in cursor.description]
+   return {key: value for key, value in zip(fields, row)}
+
 def get_db():
     if 'db' not in g:
         g.db = sqlite3.connect(
