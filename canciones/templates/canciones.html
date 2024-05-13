@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Canciones</title>
 </head>
 <body>
+    <h1>Bandas</h1>
     <ul>
-        {% for albunes in albums  %}
-        <li>{{ albunes['Title'] }}</li>
+        {% for artist in bandas  %}
+        <li>{{ artist['Name'] }}</li>
         {% endfor %}
     </ul>
+    <h1>generos</h1>
     <ul>
         {% for generos in genres %}
-        <li>{{ actor['Name'] }}</li>
+        <li>{{ actor['name'] }}</li>
         {% endfor %}
     </ul>
+    <h1>Canciones</h1>
     <ul>
-        {% for canciones in tracks %}
-        <li>{{ canciones['Name'] }}</li>
+        {% for cancion in canciones %}
+        <li>{{ cancion['Name'] }}</li>
         {% endfor %}
     </ul>
 </body>
