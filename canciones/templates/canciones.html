@@ -7,22 +7,22 @@
     <title>Canciones</title>
 </head>
 <body>
-    <h1>Bandas</h1>
+    <h1>canciones</h1>
     <ul>
-        {% for artist in bandas  %}
-        <li>{{ artist['Name'] }}</li>
+        {% for nombre in canciones  %}
+        <li>{{ nombre['Name'] }}</li>
         {% endfor %}
     </ul>
     <h1>generos</h1>
     <ul>
-        {% for generos in genres %}
-        <li>{{ actor['name'] }}</li>
+        {% for genero in generos %}
+        <li>{{ genero['Name'] }}</li>
         {% endfor %}
     </ul>
-    <h1>Canciones</h1>
+    <h1>bandas</h1>
     <ul>
-        {% for cancion in canciones %}
-        <li>{{ cancion['Name'] }}</li>
+        {% for banda in bandas %}
+        <li>{{ banda['Name'] }}</li>
         {% endfor %}
     </ul>
 </body>
