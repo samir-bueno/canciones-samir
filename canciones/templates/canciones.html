@@ -10,7 +10,11 @@
     <h1>canciones</h1>
     <ul>
         {% for nombre in canciones  %}
-        <li>{{ nombre['Name'] }}</li>
+        <li>
+            <a href="{{url for('nombre.detalle', id=canciones['GenreId'])}}">
+                {{ nombre['Name'] }} 
+            </a>   
+        </li>
         {% endfor %}
     </ul>
     <h1>generos</h1>
