@@ -7,12 +7,10 @@
     <title>Canciones</title>
 </head>
 <body>
-    <h1>canciones</h1>
+    <h1>bandas</h1>
     <ul>
-        {% for nombre in canciones  %}
-        <li>
-            {{ nombre['Name'] }}    
-        </li>
+        {% for banda in bandas %}
+        <li>{{ banda['Name'] }}</li>
         {% endfor %}
     </ul>
 </body>
