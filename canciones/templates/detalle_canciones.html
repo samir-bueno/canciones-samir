@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %} Lista de Bandas {% endblock %}
+{% block header %}Bandas{% endblock %}
+{% block content %}
+          <ul>
+             {% for cancion in canciones %}
+               <li> <a href="{{url_for('canciones.album_detalle', id=cancion['AlbumId'])}}">
+                     {{ cancion['Name']}}
+                    </a>
+               </li>
+             {% endfor %}
+          </ul>
+{% endblock %}

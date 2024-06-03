@@ -21,24 +21,22 @@ def bandas():
 
 @bp.route("/<int:id>")
 def detalle(id):
-    consulta1 = """
+    consulta_artista = """
         SELECT Name, ArtistId FROM artists
         WHERE ArtistId = ? ;
     """
-    consulta2 = """
-        SELECT t.name, g.Title FROM tracks t
-        JOIN albums g ON t.AlbumId = g.AlbumId
-        JOIN artists a ON g.ArtistId = a.ArtistId
+    consulta_detalle_artista = """
+       SELECT Title, ArtistId FROM albums a
         WHERE a.ArtistId = ? ;
     """
     base_de_datos = db.get_db()
-    resultado = base_de_datos.execute(consulta1, (id, ))
-    artista = resultado.fetchone()
+    resultado = base_de_datos.execute(consulta_artista, (id, ))
+    artistas = resultado.fetchone()
 
-    resultado = base_de_datos.execute(consulta2, (id, ))
-    lista_canciones = resultado.fetchall()
+    resultado = base_de_datos.execute(consulta_detalle_artista, (id, ))
+    lista_de_bandas = resultado.fetchall()
 
-    pagina = render_template("detalle_artista.html", artista = artista, canciones = lista_canciones)
+    pagina = render_template("detalle_banda.html", artista = artistas, bandas = lista_de_bandas)
     return pagina
 
 
