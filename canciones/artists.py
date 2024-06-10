@@ -30,6 +30,7 @@ def detalle(id):
         WHERE a.ArtistId = ? ;
     """
     base_de_datos = db.get_db()
+    
     resultado = base_de_datos.execute(consulta_artista, (id, ))
     artistas = resultado.fetchone()
 
