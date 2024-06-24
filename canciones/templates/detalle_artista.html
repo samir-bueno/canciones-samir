@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %} Lista de Bandas {% endblock %}
-{% block header %}Bandas{% endblock %}
+{% block title %} Lista de artista {% endblock %}
+{% block header %}Artistas{% endblock %}
 {% block content %}
           <ul>
-             {% for banda in bandas %}
+             {% for artista in artistas_lista %}
                <li> <a href="{{url_for('artists.detalle', id=artista['ArtistId'])}}">
-                     {{ banda['Title']}}
+                     {{ artista['Title']}}
                     </a>
                </li>
              {% endfor %}

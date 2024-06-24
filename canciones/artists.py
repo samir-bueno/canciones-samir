@@ -5,18 +5,18 @@ bp = Blueprint("artists",__name__, url_prefix="/artist")
 
 
 @bp.route('/')
-def bandas():
-    consulta_bandas = """
-             select name from artists
+def artistas():
+    consulta_artistas = """
+             select name, ArtistId from artists
           """
     
     base_de_datos = db.get_db()
     
 
-    resultado = base_de_datos.execute(consulta_bandas)
-    lista_de_bandas = resultado.fetchall()
+    resultado = base_de_datos.execute(consulta_artistas)
+    lista_de_artistas = resultado.fetchall()
 
-    pagina = render_template("bandas.html", bandas=lista_de_bandas)
+    pagina = render_template("artistas.html", artista=lista_de_artistas)
     return pagina
 
 @bp.route("/<int:id>")
@@ -26,8 +26,8 @@ def detalle(id):
         WHERE ArtistId = ? ;
     """
     consulta_detalle_artista = """
-       SELECT Title, ArtistId FROM albums a
-        WHERE a.ArtistId = ? ;
+       SELECT Title, ArtistId FROM albums 
+        WHERE ArtistId = ? ;
     """
     base_de_datos = db.get_db()
     
@@ -35,9 +35,9 @@ def detalle(id):
     artistas = resultado.fetchone()
 
     resultado = base_de_datos.execute(consulta_detalle_artista, (id, ))
-    lista_de_bandas = resultado.fetchall()
+    lista_de_artistas = resultado.fetchall()
 
-    pagina = render_template("detalle_banda.html", artista = artistas, bandas = lista_de_bandas)
+    pagina = render_template("detalle_artista.html", artista = artistas, artistas_lista = lista_de_artistas)
     return pagina
 
 
