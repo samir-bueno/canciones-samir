@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canciones</title>
+    <title>artistas</title>
 </head>
 <body>
     <h1>Artistas</h1>
     <ul>
-        {% for artist in artista %}
-        <li> <a href="{{url_for('artists.artistas', id=artista['ArtistId'])}}">
-            {{ artist['Name']}}
+        {% for artista in artista %}
+        <li> <a href="{{url_for('artists.detalle', id=artista['ArtistId'])}}">
+            {{ artista['Name']}}
            </a>
         </li>
         {% endfor %}

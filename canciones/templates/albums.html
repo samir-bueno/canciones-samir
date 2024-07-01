@@ -3,15 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canciones</title>
+    <title>albums</title>
 </head>
 <body>
     <h1>albums</h1>
     <ul>
         {% for album in albums %}
-            <li>
-                {{ album["Title"] }}             
-            </li>
+        <li> <a href="{{url_for('albums.detalle', id=album['AlbumId'])}}">
+            {{ album['Title']}}
+           </a>
+        </li>
         
         {% endfor %}
     </ul>

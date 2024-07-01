@@ -19,22 +19,22 @@ def canciones():
 
 
 @bp.route("/<int:id>")
-def album_detalle(id):
+def detalle(id):
     consulta1 = """
-        SELECT Title, AlbumId FROM albums
-        WHERE AlbumId = ? ;
+        select Name from tracks
+        WHERE TrackId = ?
     """
     consulta2 = """
-        SELECT a.name, g.Title FROM albums g
-        JOIN tracks a ON g.AlbumId = a.AlbumId
-        WHERE g.AlbumId = ? ;
+        select t.Name, a.Title from albums a
+        JOIN tracks t on a.AlbumId = t.AlbumId
+        WHERE a.AlbumId = ? ;
     """
     base_de_datos = db.get_db()
     resultado = base_de_datos.execute(consulta1, (id, ))
-    cancion = resultado.fetchone()
+    canciones = resultado.fetchone()
 
     resultado = base_de_datos.execute(consulta2, (id, ))
     lista_canciones = resultado.fetchall()
 
-    pagina = render_template("detalle_canciones.html", cancion = cancion, canciones = lista_canciones)
+    pagina = render_template("detalle_canciones.html", cancion = canciones, cancione = lista_canciones)
     return pagina

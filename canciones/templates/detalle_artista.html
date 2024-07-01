@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %} Lista de artista {% endblock %}
-{% block header %}Artistas{% endblock %}
+{% block title %} Lista de album {% endblock %}
+{% block header %}Albums{% endblock %}
 {% block content %}
           <ul>
-             {% for artista in artistas_lista %}
-               <li> <a href="{{url_for('artists.detalle', id=artista['ArtistId'])}}">
-                     {{ artista['Title']}}
+             {% for album in albums %}
+               <li> <a href="{{url_for('albums.detalle', id=album['AlbumId'])}}">
+                     {{ album['Title']}}
                     </a>
                </li>
              {% endfor %}
