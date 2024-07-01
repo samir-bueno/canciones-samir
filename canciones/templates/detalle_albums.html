@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %} Lista de canciones {% endblock %}
-{% block header %}canciones{% endblock %}
+{% block header %}canciones de {{album["Title"]}}{% endblock %}
 {% block content %}
           <ul>
              {% for cancion in canciones %}
