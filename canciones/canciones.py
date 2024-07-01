@@ -24,17 +24,11 @@ def detalle(id):
         select Name from tracks
         WHERE TrackId = ?
     """
-    consulta2 = """
-        select t.Name, a.Title from albums a
-        JOIN tracks t on a.AlbumId = t.AlbumId
-        WHERE a.AlbumId = ? ;
-    """
+
     base_de_datos = db.get_db()
     resultado = base_de_datos.execute(consulta1, (id, ))
-    canciones = resultado.fetchone()
+    cancion = resultado.fetchone()
 
-    resultado = base_de_datos.execute(consulta2, (id, ))
-    lista_canciones = resultado.fetchall()
 
-    pagina = render_template("detalle_canciones.html", cancion = canciones, cancione = lista_canciones)
+    pagina = render_template("detalle_canciones.html", cancion = cancion)
     return pagina
