@@ -6,7 +6,7 @@ bp = Blueprint("canciones",__name__, url_prefix="/canciones")
 @bp.route('/')
 def canciones():
     consulta_canciones = """
-            select name from tracks
+            select name, composer from tracks
           """
     base_de_datos = db.get_db()
 
