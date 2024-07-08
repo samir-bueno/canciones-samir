@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Artistas</h1>
+    <a href="{{url_for('artists.nuevo')}}">Nuevo artista</a>
     <ul>
         {% for artista in artista %}
         <li> <a href="{{url_for('artists.detalle', id=artista['ArtistId'])}}">
